@@ -11,7 +11,7 @@ function Book(title, author, pages, read) {
     }`;
   };
 }
-
+ 
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.unshift(book);
@@ -62,19 +62,38 @@ form.addEventListener("submit", (e) => {
 });
 
 function renderLibrary() {
-    bookList.innerHTML = "";
+  bookList.innerHTML = "";
   for (let i = 0; i < myLibrary.length; i++) {
     const book = myLibrary[i];
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
     bookCard.innerHTML = `
-            <h3 class="book-title">${book.title}</h3>
-            <p class="author">Author: ${book.author}</p>
-            <p class="pages">Pages: ${book.pages}</p>
-            <p class="read">${book.read ? "Read" : "Not Read Yet"}</p>
-            `;
+      <h3 class="book-title">${book.title}</h3>
+      <p class="author">Author: ${book.author}</p>
+      <p class="pages">Pages: ${book.pages}</p>
+      <p class="read">${book.read ? "Read" : "Not Read Yet"}</p>
+      <button class="remove-book-btn" data-index="${i}">Remove</button>
+    `;
     bookList.appendChild(bookCard);
   }
+
+  // Add event listeners for remove buttons
+  const removeButtons = document.querySelectorAll(".remove-book-btn");
+  removeButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+      const index = e.target.getAttribute("data-index");
+      removeBookFromLibrary(index);
+    });
+  });
+}
+
+function removeBookFromLibrary(index) {
+    if (confirm("Are you sure you want to remove this book?")) {
+        myLibrary.splice(index, 1);
+        renderLibrary();
+    } else {
+        return;
+    }
 }
 
 renderLibrary();
