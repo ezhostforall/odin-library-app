@@ -10,8 +10,11 @@ function Book(title, author, pages, read) {
       read ? "read" : "not read yet"
     }`;
   };
+  this.toggleRead = function () {
+    this.read = !this.read;
+  };
 }
- 
+
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.unshift(book);
@@ -73,27 +76,36 @@ function renderLibrary() {
       <p class="pages">Pages: ${book.pages}</p>
       <p class="read">${book.read ? "Read" : "Not Read Yet"}</p>
       <button class="remove-book-btn" data-index="${i}">Remove</button>
+        <button class="toggle-read-btn" data-index="${i}">Toggle Read</button>
     `;
     bookList.appendChild(bookCard);
   }
 
   // Add event listeners for remove buttons
   const removeButtons = document.querySelectorAll(".remove-book-btn");
-  removeButtons.forEach(button => {
+  removeButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const index = e.target.getAttribute("data-index");
       removeBookFromLibrary(index);
     });
   });
+  const toggleReadButtons = document.querySelectorAll(".toggle-read-btn");
+  toggleReadButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const index = e.target.getAttribute("data-index");
+      myLibrary[index].toggleRead();
+      renderLibrary();
+    });
+  });
 }
 
 function removeBookFromLibrary(index) {
-    if (confirm("Are you sure you want to remove this book?")) {
-        myLibrary.splice(index, 1);
-        renderLibrary();
-    } else {
-        return;
-    }
+  if (confirm("Are you sure you want to remove this book?")) {
+    myLibrary.splice(index, 1);
+    renderLibrary();
+  } else {
+    return;
+  }
 }
 
 renderLibrary();
