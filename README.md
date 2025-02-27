@@ -1,4 +1,4 @@
-# odin-library-app
+# Odin Library App
 ## Description
 The Odin Library App is a simple web application that allows users to manage a personal library. Users can add, remove, and toggle the read status of books in their collection.
 
