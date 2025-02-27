@@ -1,12 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+
 .hide-add-book-form {
     display: none;
 }
-.app-title, .book-list-div {
-    margin: 20px;
+
+button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.book-list-div {
+    padding: 20px 20px;
+    background-color: white;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+}
+
+.book-list-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 
 .add-book-btn {
-    cursor: pointer;
+    
 }
 
 /*.add-book-btn:hover {
@@ -14,10 +42,12 @@
 }*/
 
 .book-card {
+    background-color: white;
     border: 1px solid #ddd;
-    padding: 10px 30px 30px 30px;
+    padding: 10px 10px 30px 10px;
     margin: 10px 0;
     border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .book-title {
@@ -54,8 +84,8 @@
 }*/
 
 .book-list {
-    margin: 20px;
+    padding: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
     gap: 20px;
 }
