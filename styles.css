@@ -72,9 +72,12 @@ button {
 }
 
 .book-card {
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
     background-color: white;
     border: 1px solid #ddd;
-    padding: 10px 10px 30px 10px;
+    padding: 20px 10px 20px 10px;
     margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -83,10 +86,11 @@ button {
 .book-title {
     font-size: 1.2em;
     margin-bottom: 15px;
+    color: blue;;
 }
 
 .author, .pages, .read {
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .remove-book-btn, .toggle-read-btn {
@@ -99,6 +103,7 @@ button {
 .remove-book-btn {
     background-color: red;
     color: white;
+    margin-top: auto;
 }
 
 .remove-book-btn:hover {
@@ -131,6 +136,6 @@ button {
 .book-list {
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 2fr));
     gap: 20px;
 }

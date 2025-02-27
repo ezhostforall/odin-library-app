@@ -76,12 +76,11 @@ function renderLibrary() {
       <p class="pages">Pages: ${book.pages}</p>
       <p class="read">${book.read ? "Read" : "Not Read Yet"}</p>
       <button class="remove-book-btn" data-index="${i}">Remove</button>
-        <button class="toggle-read-btn" data-index="${i}">Toggle Read</button>
+      <button class="toggle-read-btn" data-index="${i}">Toggle Read</button>
     `;
     bookList.appendChild(bookCard);
   }
 
-  // Add event listeners for remove buttons
   const removeButtons = document.querySelectorAll(".remove-book-btn");
   removeButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -89,6 +88,7 @@ function renderLibrary() {
       removeBookFromLibrary(index);
     });
   });
+  
   const toggleReadButtons = document.querySelectorAll(".toggle-read-btn");
   toggleReadButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
